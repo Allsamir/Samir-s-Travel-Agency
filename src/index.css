@@ -2,3 +2,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+  --active-navlink-bg: #000;
+  --active-navlink-text: #fff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.dark-mode {
+  --bg-color: #000;
+  --text-color: #fff;
+}
+
+a.active {
+  background-color: var(--active-navlink-bg) !important;
+  color: var(--active-navlink-text) !important;
+}
+
+.dark-mode-navlink {
+  --active-navlink-bg: #fff;
+  --active-navlink-text: #000;
+}
