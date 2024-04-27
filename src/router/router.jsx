@@ -8,6 +8,8 @@ import AddTouristsSpot from "../Pages/AddTouristsSpot";
 import MyList from "../Pages/MyList";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import ErrorPage from "../Pages/ErrorPage";
+import ProtectedRoute from "../ProtectedRoutes/ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -28,11 +30,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/add-tourist-sports",
-        element: <AddTouristsSpot />,
+        element: (
+          <ProtectedRoute>
+            <AddTouristsSpot />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/my-list",
-        element: <MyList />,
+        element: (
+          <ProtectedRoute>
+            <MyList />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/login",
@@ -43,5 +53,6 @@ export const router = createBrowserRouter([
         element: <Register />,
       },
     ],
+    errorElement: <ErrorPage />,
   },
 ]);
