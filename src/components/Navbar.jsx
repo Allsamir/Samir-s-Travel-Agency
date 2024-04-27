@@ -68,7 +68,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost lg:text-xl md:text-lg text-base">
+        <a className="btn text-dim-black btn-ghost lg:text-xl md:text-lg text-base">
           Samir&apos;s Travel Agency
         </a>
       </div>

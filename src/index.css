@@ -5,8 +5,8 @@
 
 :root {
   --bg-color: #fff;
-  --text-color: #000;
-  --active-navlink-bg: #000;
+  --text-color: #404756;
+  --active-navlink-bg: #23272f;
   --active-navlink-text: #fff;
 }
 
@@ -16,7 +16,7 @@ body {
 }
 
 .dark-mode {
-  --bg-color: #000;
+  --bg-color: #23272f;
   --text-color: #fff;
 }
 
@@ -27,5 +27,5 @@ a.active {
 
 .dark-mode-navlink {
   --active-navlink-bg: #fff;
-  --active-navlink-text: #000;
+  --active-navlink-text: #404756;
 }
