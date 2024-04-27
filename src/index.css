@@ -29,3 +29,9 @@ a.active {
   --active-navlink-bg: #fff;
   --active-navlink-text: #404756;
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar-start {
+    width: 10% !important;
+  }
+}
