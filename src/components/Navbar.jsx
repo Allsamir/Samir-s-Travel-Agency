@@ -1,11 +1,27 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../ContextProvider/ThemeContext";
 import { IoMoon } from "react-icons/io5";
 import { IoSunnyOutline } from "react-icons/io5";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../ContextProvider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const singOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("LogOut Successfully!", {
+          position: "top-right",
+        });
+        navigate("/login");
+      })
+      .catch((err) => console.error(err));
+  };
   return (
     <div className="navbar py-4">
       <div className="navbar-start">
@@ -68,29 +84,63 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn text-dim-black btn-ghost lg:text-xl md:text-lg text-base">
+        <a
+          className={`btn ${
+            isDarkMode ? "text-white" : "text-dim-black"
+          } btn-ghost lg:text-xl md:text-lg text-base`}
+        >
           Samir&apos;s Travel Agency
         </a>
       </div>
       <div className="navbar-end">
-        <Link to={`/login`}>
-          <button
-            className={`btn btn-outline ${
-              isDarkMode ? "text-white" : "text-black"
-            } ml-4`}
-          >
-            Login
-          </button>
-        </Link>
-        <Link to={`/register`}>
-          <button
-            className={`btn btn-outline ${
-              isDarkMode ? "text-white" : "text-black"
-            } ml-4`}
-          >
-            Register
-          </button>
-        </Link>
+        {user ? (
+          <>
+            <Tooltip id="my-tooltip" />
+
+            <a
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={user.displayName}
+              data-tooltip-place="top"
+              className="mr-4"
+            >
+              <img
+                src={user.photoURL}
+                alt={user.displayName}
+                className="w-10 rounded-full"
+              />
+            </a>
+            <button
+              onClick={singOut}
+              className={`btn btn-outline ${
+                isDarkMode ? "text-white" : "text-black"
+              } ml-4`}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to={`/login`}>
+              <button
+                className={`btn btn-outline ${
+                  isDarkMode ? "text-white" : "text-black"
+                } ml-4`}
+              >
+                Login
+              </button>
+            </Link>
+            <Link to={`/register`}>
+              <button
+                className={`btn btn-outline ${
+                  isDarkMode ? "text-white" : "text-black"
+                } ml-4`}
+              >
+                Register
+              </button>
+            </Link>
+          </>
+        )}
+
         <button className="ml-4" onClick={toggleTheme}>
           {isDarkMode ? (
             <IoSunnyOutline className="text-xl text-white" />
@@ -99,6 +149,7 @@ const Navbar = () => {
           )}
         </button>
       </div>
+      <ToastContainer />
     </div>
   );
 };
