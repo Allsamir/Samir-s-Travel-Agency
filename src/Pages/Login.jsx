@@ -104,7 +104,11 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Email"
-                className="input input-bordered bg-white"
+                className={`input ${
+                  isDarkMode ? "bg-dim-black" : "bg-white"
+                } input-bordered ${
+                  isDarkMode ? "text-white" : "text-light-black"
+                }`}
                 required
                 {...register("email")}
               />
@@ -123,7 +127,11 @@ const Login = () => {
                 <input
                   type={isPasswordVisiable ? "text" : "password"}
                   placeholder="Password"
-                  className="input input-bordered bg-white w-full"
+                  className={`input ${
+                    isDarkMode ? "bg-dim-black" : "bg-white"
+                  } input-bordered ${
+                    isDarkMode ? "text-white" : "text-light-black"
+                  } w-full`}
                   required
                   {...register("password")}
                 />
@@ -137,7 +145,11 @@ const Login = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-outline text-black">
+              <button
+                className={`btn btn-outline ${
+                  isDarkMode ? "text-white" : "text-light-black"
+                }`}
+              >
                 <input type="submit" value={"Login"} />
               </button>
             </div>
@@ -156,7 +168,9 @@ const Login = () => {
                 <FcGoogle />
               </button>
               <button
-                className="btn btn-outline text-black"
+                className={`btn btn-outline ${
+                  isDarkMode ? "text-white" : "text-black"
+                }`}
                 onClick={handleFacebookLogin}
               >
                 <FiGithub />
