@@ -27,8 +27,21 @@ const Register = () => {
           })
             .then(() => {
               showToastMessage();
-              event.target.reset();
-              navigate("/");
+              const userEmail = { email };
+              fetch("http://localhost:3000/my-tourist-sports", {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(userEmail),
+              })
+                .then((res) => res.json())
+                .then((result) => {
+                  console.log(result);
+                  event.target.reset();
+                  navigate("/");
+                })
+                .catch((err) => console.error(err));
             })
             .catch((err) => {
               console.error(err);

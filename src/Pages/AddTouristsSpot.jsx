@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { ThemeContext } from "../ContextProvider/ThemeContext";
 import { AuthContext } from "../ContextProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddTouristsSpot = () => {
   const {
@@ -11,16 +12,35 @@ const AddTouristsSpot = () => {
   } = useForm();
   const { isDarkMode } = useContext(ThemeContext);
   const { user } = useContext(AuthContext);
-  const onSubmit = (data) => {
-    const userEmail = user.email;
-    const touristSports = [data];
-    const userData = { userEmail, touristSports };
-    console.log(userData);
+  const onSubmit = (data, event) => {
+    const email = user.email;
+    const touristSportData = data;
+    const dataToDB = { email, touristSportData };
+    fetch("http://localhost:3000/my-tourist-sports", {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(dataToDB),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        event.target.reset();
+        if (result.acknowledged) {
+          Swal.fire({
+            title: "Added Successfully",
+            text: "Tourist Sport has been added",
+            icon: "success",
+            confirmButtonText: "close",
+          });
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
     <div className="container mx-auto px-4">
-      <div className="min-h-screen mt-16">
+      <div className="min-h-screen my-16">
         <div className="flex-col lg:flex-row-reverse w-full">
           <div
             className={`card shrink-0 lg:w-1/2 md:w-4/5 mx-auto w-full shadow-2xl ${
