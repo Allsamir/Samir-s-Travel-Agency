@@ -64,6 +64,12 @@ const MyList = () => {
               );
             }
           });
+        fetch(`http://localhost:3000/tourist-sports/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((result) => console.log(result))
+          .catch((err) => console.error(err));
       }
     });
   };
