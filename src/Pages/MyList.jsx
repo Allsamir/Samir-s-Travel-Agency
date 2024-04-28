@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../ContextProvider/AuthProvider";
 import { ThemeContext } from "../ContextProvider/ThemeContext";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -27,9 +28,45 @@ const MyList = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, [user.email]);
+
+  const deleteTouristSport = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/my-tourist-sports/${id}`, {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.acknowledged) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              setMyTouristSports(
+                myTouristSports.filter(
+                  (touristSport) => touristSport._id !== id,
+                ),
+              );
+            }
+          });
+      }
+    });
+  };
 
   if (myTouristSports.length === 0) {
     return (
@@ -113,6 +150,7 @@ const MyList = () => {
                         className={`btn btn-outline ${
                           isDarkMode ? "text-white" : "text-light-black"
                         }`}
+                        onClick={() => deleteTouristSport(touristSport._id)}
                       >
                         Delete
                       </button>
