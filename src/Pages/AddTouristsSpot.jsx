@@ -12,39 +12,8 @@ const AddTouristsSpot = () => {
   } = useForm();
   const { isDarkMode } = useContext(ThemeContext);
   const { user } = useContext(AuthContext);
-  const generateRandomId = () => {
-    const min = 10000000;
-    const max = 99999999;
-    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    return randomNumber.toString();
-  };
 
   const onSubmit = (data, event) => {
-    const email = user.email;
-    data.id = generateRandomId();
-    const touristSportData = data;
-    const dataToDB = { email, touristSportData };
-    fetch("http://localhost:3000/my-tourist-sports", {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(dataToDB),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        event.target.reset();
-        if (result.acknowledged) {
-          Swal.fire({
-            title: "Added Successfully",
-            text: "Tourist Sport has been added",
-            icon: "success",
-            confirmButtonText: "close",
-          });
-        }
-      })
-      .catch((err) => console.error(err));
-
     fetch("http://localhost:3000/tourist-sports", {
       method: "POST",
       headers: {
@@ -54,7 +23,30 @@ const AddTouristsSpot = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        data._id = result.insertedId;
+        const email = user.email;
+        const touristSportData = data;
+        const dataToDB = { email, touristSportData };
+        fetch("http://localhost:3000/my-tourist-sports", {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(dataToDB),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            event.target.reset();
+            if (result.acknowledged) {
+              Swal.fire({
+                title: "Added Successfully",
+                text: "Tourist Sport has been added",
+                icon: "success",
+                confirmButtonText: "close",
+              });
+            }
+          })
+          .catch((err) => console.error(err));
       })
       .catch((err) => console.error(err));
   };

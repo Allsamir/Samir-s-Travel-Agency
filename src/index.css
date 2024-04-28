@@ -15,6 +15,11 @@ body {
   color: var(--text-color);
 }
 
+html {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
 .dark-mode {
   --bg-color: #23272f;
   --text-color: #fff;

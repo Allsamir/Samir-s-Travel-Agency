@@ -11,6 +11,7 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import ProtectedRoute from "../ProtectedRoutes/ProtectedRoute";
 import TouristSportDetails from "../Pages/TouristSportDetails";
+import UpdateTouristSport from "../Pages/UpdateTouristSport";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <MyList />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/update-tourist-sport/:touristSportID",
+        element: (
+          <ProtectedRoute>
+            <UpdateTouristSport />
           </ProtectedRoute>
         ),
       },
