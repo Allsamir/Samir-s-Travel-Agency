@@ -45,7 +45,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className={`z-20 menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow ${
+            className={`z-20 menu menu-sm dropdown-content mt-3 p-2 shadow ${
               isDarkMode ? "bg-black" : "bg-white"
             } rounded-box w-52`}
           >
