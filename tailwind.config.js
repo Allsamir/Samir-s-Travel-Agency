@@ -13,6 +13,7 @@ export default {
     },
     fontFamily: {
       sans: ["Roboto", "sans-serif"],
+      popins: ["Poppins", "sans-serif"],
     },
   },
   plugins: [daisyui],

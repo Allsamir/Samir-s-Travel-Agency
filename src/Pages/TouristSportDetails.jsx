@@ -47,13 +47,15 @@ const TouristSportDetails = () => {
             alt=""
             className="w-full rounded-xl"
           />
-          <div className="touristSportDetails space-y-4 mt-8">
-            <h1 className="text-6xl">{touristSport.tourists_spot_name}</h1>
-            <p className="text-3xl">
-              <span className="font-bold">Country:</span>{" "}
-              {touristSport.country_Name}
-            </p>
-            <p className="text-base">{touristSport.short_description}</p>
+          <div className="touristSportDetails space-y-4 mt-8 font-popins">
+            <div className="py-4 space-y-4">
+              <h1 className="text-6xl">{touristSport.tourists_spot_name}</h1>
+              <p className="text-3xl">
+                <span className="font-bold">Country:</span>{" "}
+                {touristSport.country_Name}
+              </p>
+              <p className="text-base">{touristSport.short_description}</p>
+            </div>
             <p className="text-xl">
               <span className="font-bold">Location:</span>{" "}
               {touristSport.location}

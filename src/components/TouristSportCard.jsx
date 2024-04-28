@@ -11,7 +11,7 @@ const TouristSportCard = ({ touristSport }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-white">
+          <h2 className="card-title text-white font-popins">
             {touristSport.tourists_spot_name}
           </h2>
           <p className="text-white">
