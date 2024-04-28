@@ -147,17 +147,16 @@ const UpdateTouristSport = () => {
                     Short Description
                   </span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="Short Description"
-                  className={`input ${
+                <textarea
+                  className={`textarea textarea-bordered ${
                     isDarkMode ? "bg-dim-black" : "bg-white"
                   } input-bordered ${
                     isDarkMode ? "text-white" : "text-light-black"
-                  } w-full`}
+                  }`}
+                  placeholder="Short Description"
                   required
                   {...register("short_description")}
-                />
+                ></textarea>
               </div>
               <div className="form-control flex-row gap-6">
                 <div className="w-1/2">
