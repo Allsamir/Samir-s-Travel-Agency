@@ -35,7 +35,21 @@ const UpdateTouristSport = () => {
           });
           event.target.reset();
         }
-      });
+      })
+      .catch((err) => console.error(err));
+
+    fetch(`http://localhost:3000/tourist-sports/${touristSportID}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => console.error(err));
   };
   return (
     <div className="container mx-auto px-4">
