@@ -113,12 +113,12 @@ const AddTouristsSpot = () => {
                     }`}
                     {...register("country_Name")}
                   >
-                    <option value={`bangladesh`}>Bangladesh</option>
-                    <option value={`thailand`}>Thailand</option>
-                    <option value={`indonesia`}>Indonesia</option>
-                    <option value={`malaysia`}>Malaysia</option>
-                    <option value={`vietnam`}>Vietnam</option>
-                    <option value={`cambodia`}>Cambodia</option>
+                    <option value={`Bangladesh`}>Bangladesh</option>
+                    <option value={`Thailand`}>Thailand</option>
+                    <option value={`Indonesia`}>Indonesia</option>
+                    <option value={`Malaysia`}>Malaysia</option>
+                    <option value={`Vietnam`}>Vietnam</option>
+                    <option value={`Cambodia`}>Cambodia</option>
                   </select>
                 </div>
                 <div className="w-1/2">

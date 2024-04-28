@@ -7,6 +7,7 @@ import { AuthContext } from "../ContextProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../config/firebase.config";
 import { ThemeContext } from "../ContextProvider/ThemeContext";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
@@ -37,9 +38,15 @@ const Register = () => {
               })
                 .then((res) => res.json())
                 .then((result) => {
-                  console.log(result);
-                  event.target.reset();
-                  navigate("/");
+                  if (result.acknowledged) {
+                    Swal.fire({
+                      title: "Successfully Registerd",
+                      icon: "success",
+                      confirmButtonText: "close",
+                    });
+                    event.target.reset();
+                    navigate("/");
+                  }
                 })
                 .catch((err) => console.error(err));
             })

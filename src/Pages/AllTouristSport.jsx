@@ -27,7 +27,7 @@ const AllTouristSport = () => {
 
   return (
     <>
-      <div className="container mx-auto px-4 my-20">
+      <div className="container mx-auto px-4 mt-20 mb-60">
         {loading && (
           <div className="text-center">
             <span className="loading loading-bars loading-lg"></span>

@@ -1,27 +1,29 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../ContextProvider/ThemeContext";
 import { IoMoon } from "react-icons/io5";
 import { IoSunnyOutline } from "react-icons/io5";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../ContextProvider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import "../index.css";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   const { user, logOut } = useContext(AuthContext);
-  const navigate = useNavigate();
   const singOut = () => {
     logOut()
-      .then(() => {
-        toast.success("LogOut Successfully!", {
-          position: "top-right",
-        });
-        navigate("/login");
-      })
+      .then(() => showAlertMessage())
       .catch((err) => console.error(err));
+  };
+
+  const showAlertMessage = () => {
+    Swal.fire({
+      title: "Successfully Logout",
+      icon: "success",
+      confirmButtonText: "close",
+    });
   };
   return (
     <div className="navbar py-4">
@@ -96,7 +98,7 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <>
-            <Tooltip id="my-tooltip" />
+            <Tooltip id="my-tooltip" className="z-10" />
 
             <a
               data-tooltip-id="my-tooltip"
@@ -149,7 +151,6 @@ const Navbar = () => {
           )}
         </button>
       </div>
-      <ToastContainer />
     </div>
   );
 };
