@@ -8,6 +8,7 @@ import { AuthContext } from "../ContextProvider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import "../index.css";
 import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
@@ -91,7 +92,13 @@ const Navbar = () => {
               isDarkMode ? "text-white" : "text-dim-black"
             } btn-ghost lg:text-xl md:text-lg text-base`}
           >
-            Samir&apos;s Travel Agency
+            <Typewriter
+              delaySpeed={1000}
+              deleteSpeed={25}
+              loop={0}
+              typeSpeed={75}
+              words={["Welcome!", "Samir's Travel Agency"]}
+            />
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">

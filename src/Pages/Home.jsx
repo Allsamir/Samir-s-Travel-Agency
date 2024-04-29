@@ -5,6 +5,7 @@ import TSports from "../components/TSports";
 import Countries from "../components/Countries";
 import Testimonial from "../components/Testimonial";
 import Map from "../components/Map";
+import { Typewriter } from "react-simple-typewriter";
 const Home = () => {
   const { isDarkMode } = useContext(ThemeContext);
   const [touristSports, setTouristSports] = useState([]);
@@ -59,7 +60,15 @@ const Home = () => {
             isDarkMode ? "text-white" : "text-dim-black"
           } text-center font-bold mb-16`}
         >
-          Tourists Spots
+          <Typewriter
+            cursor={true}
+            cursorBlinking={true}
+            delaySpeed={1000}
+            deleteSpeed={25}
+            loop={0}
+            typeSpeed={75}
+            words={["Welcome!", "Samir's Travel Agency", "Tourist Sports"]}
+          />
         </div>
         {loading && (
           <div className="text-center">
@@ -78,7 +87,15 @@ const Home = () => {
             isDarkMode ? "text-white" : "text-dim-black"
           } text-center font-bold mb-16`}
         >
-          Countries
+          <Typewriter
+            cursor={true}
+            cursorBlinking={true}
+            delaySpeed={1000}
+            deleteSpeed={25}
+            loop={0}
+            typeSpeed={75}
+            words={["Welcome!", "Samir's Travel Agency", "Countries"]}
+          />
         </div>
         {loadingC && (
           <div className="text-center">
@@ -98,7 +115,15 @@ const Home = () => {
             isDarkMode ? "text-white" : "text-dim-black"
           } text-center font-bold mb-16`}
         >
-          Our Image Gallery
+          <Typewriter
+            cursor={true}
+            cursorBlinking={true}
+            delaySpeed={1000}
+            deleteSpeed={25}
+            loop={0}
+            typeSpeed={75}
+            words={["Welcome!", "Samir's Travel Agency", "Our Image Gallery"]}
+          />
         </div>
         <div className="text-center">
           <Testimonial />
@@ -110,7 +135,15 @@ const Home = () => {
             isDarkMode ? "text-white" : "text-dim-black"
           } text-center font-bold mb-16`}
         >
-          Contact Us
+          <Typewriter
+            cursor={true}
+            cursorBlinking={true}
+            delaySpeed={1000}
+            deleteSpeed={25}
+            loop={0}
+            typeSpeed={75}
+            words={["Welcome!", "Samir's Travel Agency", "Contact Us"]}
+          />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <Map />
