@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Testimonial = () => {
   const [imageGallery, setImageGallery] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/tourist-sports")
+    fetch("https://assinment-10-server-ten.vercel.app/tourist-sports")
       .then((res) => res.json())
       .then((result) => setImageGallery(result))
       .catch((err) => console.error(err));

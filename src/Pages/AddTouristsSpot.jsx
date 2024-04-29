@@ -14,7 +14,7 @@ const AddTouristsSpot = () => {
   const { user } = useContext(AuthContext);
 
   const onSubmit = (data, event) => {
-    fetch("http://localhost:3000/tourist-sports", {
+    fetch("https://assinment-10-server-ten.vercel.app/tourist-sports", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -27,7 +27,7 @@ const AddTouristsSpot = () => {
         const email = user.email;
         const touristSportData = data;
         const dataToDB = { email, touristSportData };
-        fetch("http://localhost:3000/my-tourist-sports", {
+        fetch("https://assinment-10-server-ten.vercel.app/my-tourist-sports", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

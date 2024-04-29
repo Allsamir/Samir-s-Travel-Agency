@@ -12,7 +12,7 @@ const TouristSportDetails = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/tourist-sports/${touristSportID}`,
+          `https://assinment-10-server-ten.vercel.app/tourist-sports/${touristSportID}`,
         );
         const touristSportData = await res.json();
         console.log(touristSportData);

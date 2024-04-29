@@ -29,13 +29,16 @@ const Register = () => {
             .then(() => {
               showToastMessage();
               const userEmail = { email };
-              fetch("http://localhost:3000/my-tourist-sports", {
-                method: "POST",
-                headers: {
-                  "content-type": "application/json",
+              fetch(
+                "https://assinment-10-server-ten.vercel.app/my-tourist-sports",
+                {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(userEmail),
                 },
-                body: JSON.stringify(userEmail),
-              })
+              )
                 .then((res) => res.json())
                 .then((result) => {
                   if (result.acknowledged) {

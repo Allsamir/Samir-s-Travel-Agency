@@ -17,13 +17,16 @@ const UpdateTouristSport = () => {
   const onSubmit = (data, event) => {
     const email = user.email;
     const dataToDB = { email, data };
-    fetch(`http://localhost:3000/my-tourist-sports/${touristSportID}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
+    fetch(
+      `https://assinment-10-server-ten.vercel.app/my-tourist-sports/${touristSportID}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(dataToDB),
       },
-      body: JSON.stringify(dataToDB),
-    })
+    )
       .then((res) => res.json())
       .then((result) => {
         if (result.acknowledged) {
@@ -38,13 +41,16 @@ const UpdateTouristSport = () => {
       })
       .catch((err) => console.error(err));
 
-    fetch(`http://localhost:3000/tourist-sports/${touristSportID}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
+    fetch(
+      `https://assinment-10-server-ten.vercel.app/tourist-sports/${touristSportID}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
       },
-      body: JSON.stringify(data),
-    })
+    )
       .then((res) => res.json())
       .then((result) => {
         console.log(result);

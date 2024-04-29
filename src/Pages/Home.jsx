@@ -16,7 +16,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          "http://localhost:3000/tourist-sports/limitedSports",
+          "https://assinment-10-server-ten.vercel.app/tourist-sports/limitedSports",
         );
         const result = await res.json();
         if (result) {
@@ -33,7 +33,9 @@ const Home = () => {
 
     const fetchDataFromCountries = async () => {
       try {
-        const res = await fetch("http://localhost:3000/countries");
+        const res = await fetch(
+          "https://assinment-10-server-ten.vercel.app/countries",
+        );
         const result = await res.json();
         if (result) {
           setCountries(result);

@@ -10,7 +10,9 @@ const AllTouristSport = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:3000/tourist-sports");
+        const res = await fetch(
+          "https://assinment-10-server-ten.vercel.app/tourist-sports",
+        );
         const result = await res.json();
         if (result) {
           setTouristSports(result);
@@ -27,7 +29,9 @@ const AllTouristSport = () => {
   }, []);
 
   const fetchDataInAscendingOrder = () => {
-    fetch("http://localhost:3000/tourist-sports/ascendingOrder")
+    fetch(
+      "https://assinment-10-server-ten.vercel.app/tourist-sports/ascendingOrder",
+    )
       .then((res) => res.json())
       .then((result) => {
         setTouristSports(result);

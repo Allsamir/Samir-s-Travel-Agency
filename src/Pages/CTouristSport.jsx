@@ -9,7 +9,9 @@ const CTouristSport = () => {
   const [loading, setLoading] = useState(true);
   const { isDarkMode } = useContext(ThemeContext);
   useEffect(() => {
-    fetch(`http://localhost:3000/tourist-sports/country/${countryName}`)
+    fetch(
+      `https://assinment-10-server-ten.vercel.app/tourist-sports/country/${countryName}`,
+    )
       .then((res) => res.json())
       .then((result) => {
         setCTouristSports(result);

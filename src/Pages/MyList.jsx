@@ -14,7 +14,7 @@ const MyList = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/my-tourist-sports/${user.email}`,
+          `https://assinment-10-server-ten.vercel.app/my-tourist-sports/${user.email}`,
         );
         const result = await res.json();
         if (result) {
@@ -42,13 +42,16 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/my-tourist-sports/${id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
+        fetch(
+          `https://assinment-10-server-ten.vercel.app/my-tourist-sports/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ email: user.email }),
           },
-          body: JSON.stringify({ email: user.email }),
-        })
+        )
           .then((res) => res.json())
           .then((result) => {
             if (result.acknowledged) {
@@ -64,9 +67,12 @@ const MyList = () => {
               );
             }
           });
-        fetch(`http://localhost:3000/tourist-sports/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assinment-10-server-ten.vercel.app/tourist-sports/${id}`,
+          {
+            method: "DELETE",
+          },
+        )
           .then((res) => res.json())
           .then((result) => console.log(result))
           .catch((err) => console.error(err));
