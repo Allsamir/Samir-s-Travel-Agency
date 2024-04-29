@@ -3,6 +3,7 @@ import Slider from "../components/Slider";
 import { ThemeContext } from "../ContextProvider/ThemeContext";
 import TSports from "../components/TSports";
 import Countries from "../components/Countries";
+import Testimonial from "../components/Testimonial";
 const Home = () => {
   const { isDarkMode } = useContext(ThemeContext);
   const [touristSports, setTouristSports] = useState([]);
@@ -90,6 +91,19 @@ const Home = () => {
           {countries.map((country, index) => (
             <Countries key={index} country={country} />
           ))}
+        </div>
+      </div>
+
+      <div className="my-32">
+        <div
+          className={`title text-4xl font-popins ${
+            isDarkMode ? "text-white" : "text-dim-black"
+          } text-center font-bold mb-16`}
+        >
+          Our Image Gallery
+        </div>
+        <div className="text-center">
+          <Testimonial />
         </div>
       </div>
     </div>
