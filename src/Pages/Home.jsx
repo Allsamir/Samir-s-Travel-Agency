@@ -18,7 +18,6 @@ const Home = () => {
           "http://localhost:3000/tourist-sports/limitedSports",
         );
         const result = await res.json();
-        console.log(result);
         if (result) {
           setTouristSports(result);
         } else {
@@ -35,8 +34,6 @@ const Home = () => {
       try {
         const res = await fetch("http://localhost:3000/countries");
         const result = await res.json();
-        console.log(result);
-
         if (result) {
           setCountries(result);
         } else {

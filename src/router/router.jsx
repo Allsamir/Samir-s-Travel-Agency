@@ -12,6 +12,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import ProtectedRoute from "../ProtectedRoutes/ProtectedRoute";
 import TouristSportDetails from "../Pages/TouristSportDetails";
 import UpdateTouristSport from "../Pages/UpdateTouristSport";
+import CTouristSport from "../Pages/CTouristSport";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
             <UpdateTouristSport />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "/country/:countryName",
+        element: <CTouristSport />,
       },
       {
         path: "/login",
