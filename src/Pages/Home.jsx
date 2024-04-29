@@ -4,6 +4,7 @@ import { ThemeContext } from "../ContextProvider/ThemeContext";
 import TSports from "../components/TSports";
 import Countries from "../components/Countries";
 import Testimonial from "../components/Testimonial";
+import Map from "../components/Map";
 const Home = () => {
   const { isDarkMode } = useContext(ThemeContext);
   const [touristSports, setTouristSports] = useState([]);
@@ -104,6 +105,41 @@ const Home = () => {
         </div>
         <div className="text-center">
           <Testimonial />
+        </div>
+      </div>
+      <div className="container mx-auto px-4 my-32">
+        <div
+          className={`title text-4xl font-popins ${
+            isDarkMode ? "text-white" : "text-dim-black"
+          } text-center font-bold mb-16`}
+        >
+          Contact Us
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <Map />
+          <>
+            <div className={`hero ${isDarkMode ? "bg-black" : "bg-white"}`}>
+              <div className="hero-content">
+                <div className="max-w-md">
+                  <h1 className="text-5xl font-bold">Samri&apos;s Travel</h1>
+                  <p className="py-6">
+                    We provide the best travel experience and with us your
+                    travelling becomes your life. Feel free to contact us
+                    anytime
+                  </p>
+                  <a href="tel:01863966821">
+                    <button
+                      className={`btn btn-outline ${
+                        isDarkMode ? "text-white" : "text-light-black"
+                      }`}
+                    >
+                      Contact Us
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </>
         </div>
       </div>
     </div>
