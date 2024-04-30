@@ -90,7 +90,7 @@ const Navbar = () => {
           <a
             className={`btn ${
               isDarkMode ? "text-white" : "text-dim-black"
-            } btn-ghost lg:text-xl md:text-lg text-base`}
+            } btn-ghost lg:text-xl md:text-lg text-base md:opacity-100 opacity-0`}
           >
             <Typewriter
               delaySpeed={1000}
