@@ -13,6 +13,7 @@ import ProtectedRoute from "../ProtectedRoutes/ProtectedRoute";
 import TouristSportDetails from "../Pages/TouristSportDetails";
 import UpdateTouristSport from "../Pages/UpdateTouristSport";
 import CTouristSport from "../Pages/CTouristSport";
+import ForgetPassword from "../Pages/ForgetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/forget-password",
+        element: <ForgetPassword />,
       },
     ],
     errorElement: <ErrorPage />,
