@@ -19,3 +19,24 @@ Welcome to Samir's Travel Agency, your ultimate destination for exploring the wo
 ## For Challenge I used
 
 -**React Tooltip** [https://react-tooltip.com/] -**React Simple Typewriter** [https://www.npmjs.com/package/react-simple-typewriter]
+
+## Getting Started
+
+To get started with Samir's Travel Agency WebApp, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Install the necessary dependencies by running `npm install`.
+3. Start the development server by running `npm start`.
+4. Visit `localhost:5173` in your browser to view the web app.
+
+## Technologies Used
+
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- Tailwind Css
+- Daisy UI
+- Meterial UI
+- Ant UI Design
+- etc.
